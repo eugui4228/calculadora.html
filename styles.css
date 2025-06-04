@@ -1,0 +1,187 @@
+/* Estilos para o Jogo de Calculadora Interativa */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #f5f5f5;
+    padding: 20px;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.game-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Estilos da calculadora */
+.calculator-container {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.calculator-display {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 260px;
+    height: 40px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 24px;
+    text-align: right;
+    padding: 5px 10px;
+    overflow: hidden;
+    white-space: nowrap;
+    z-index: 10;
+}
+
+.calculator-image-container {
+    position: relative;
+}
+
+.calculator-image {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+/* Estilos das opções de resposta */
+.game-options {
+    width: 100%;
+    max-width: 600px;
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+.game-options h2 {
+    text-align: center;
+    margin-bottom: 15px;
+    color: #444;
+    font-size: 1.2rem;
+}
+
+.options-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.option-btn {
+    padding: 12px;
+    font-size: 18px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.option-btn:hover {
+    background-color: #45a049;
+}
+
+/* Área de mensagens e pontuação */
+.game-info {
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.message-area {
+    min-height: 50px;
+    padding: 10px;
+    background-color: #e8f5e9;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+    color: #2e7d32;
+}
+
+.score-area {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #f1f8e9;
+    border-radius: 5px;
+}
+
+.score-area p {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Botão de iniciar */
+.controls {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.start-btn {
+    padding: 12px 30px;
+    font-size: 18px;
+    background-color: #2196F3;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.start-btn:hover {
+    background-color: #0b7dda;
+}
+
+/* Estilos para mensagens de sucesso/erro */
+.success-message {
+    color: #2e7d32;
+    background-color: #e8f5e9;
+    border: 1px solid #c8e6c9;
+}
+
+.error-message {
+    color: #c62828;
+    background-color: #ffebee;
+    border: 1px solid #ffcdd2;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .options-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .calculator-display {
+        width: 80%;
+        max-width: 260px;
+    }
+}

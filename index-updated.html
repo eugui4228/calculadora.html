@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo de Calculadora Interativa</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Jogo de Calculadora Interativa</h1>
+        
+        <div class="game-area">
+            <!-- Área da calculadora -->
+            <div class="calculator-container">
+                <div class="calculator-display" id="display">0</div>
+                <div class="calculator-image-container">
+                    <img src="calc.png" alt="Calculadora" usemap="#calculator-map" class="calculator-image">
+                    
+                    <!-- Mapeamento das áreas clicáveis da calculadora -->
+                    <map name="calculator-map">
+                        <!-- Botões de controle -->
+                        <area shape="rect" coords="4%,19%,25%,31%" href="#" alt="OFF" role="button" aria-label="Desligar Calculadora" onclick="pressButton('off')">
+                        <area shape="rect" coords="29%,19%,50%,31%" href="#" alt="ON" role="button" aria-label="Ligar Calculadora" onclick="pressButton('on')">
+                        <area shape="rect" coords="54%,19%,75%,31%" href="#" alt="C" role="button" aria-label="Apagar Números" onclick="pressButton('c')">
+                        
+                        <!-- Números e operações -->
+                        <area shape="rect" coords="4%,33%,25%,44%" href="#" alt="7" role="button" aria-label="Número 7"onclick="pressButton('7')">
+                        <area shape="rect" coords="29%,33%,50%,44%" href="#" alt="8" role="button" aria-label="Número 8"onclick="pressButton('8')">
+                        <area shape="rect" coords="54%,33%,75%,44%" href="#" alt="9" role="button" aria-label="Número 9"onclick="pressButton('9')">
+                        <area shape="rect" coords="79%,33%,100%,44%" href="#" alt="/" role="button" aria-label="Dividir"onclick="pressButton('/')">
+                        
+                        <area shape="rect" coords="4%,47%,25%,58%" href="#" alt="4" role="button" aria-label="Número 4"onclick="pressButton('4')">
+                        <area shape="rect" coords="29%,47%,50%,58%" href="#" alt="5" role="button" aria-label="Número 5"onclick="pressButton('5')">
+                        <area shape="rect" coords="54%,47%,75%,58%" href="#" alt="6" role="button" aria-label="Número 6"onclick="pressButton('6')">
+                        <area shape="rect" coords="79%,47%,100%,58%" href="#" alt="x" role="button" aria-label="Multiplicar"onclick="pressButton('*')">
+                        
+                        <area shape="rect" coords="4%,61%,25%,72%" href="#" alt="1" role="button" aria-label="Número 1"onclick="pressButton('1')">
+                        <area shape="rect" coords="29%,61%,50%,72%" href="#" alt="2" role="button" aria-label="Número 2"onclick="pressButton('2')">
+                        <area shape="rect" coords="54%,61%,75%,72%" href="#" alt="3" role="button" aria-label="Número 3"onclick="pressButton('3')">
+                        <area shape="rect" coords="79%,61%,100%,72%" href="#" alt="-" role="button" aria-label="Subtrair"onclick="pressButton('-')">
+                        
+                        <area shape="rect" coords="4%,75%,25%,86%" href="#" alt="0" role="button" aria-label="Número 0"onclick="pressButton('0')">
+                        <area shape="rect" coords="29%,75%,50%,86%" href="#" alt="." role="button" aria-label="Adicionar ponto decimal"onclick="pressButton('.')">
+                        <area shape="rect" coords="54%,75%,75%,86%" href="#" alt="√" role="button" aria-label="Calcular raiz quadrada"onclick="pressButton('sqrt')">
+                        <area shape="rect" coords="79%,75%,100%,86%" href="#" alt="%" role="button" aria-label="Calcular Porcentagem"onclick="pressButton('%')">
+                        
+                        <area shape="rect" coords="54%,89%,75%,100%" href="#" alt="+" role="button" aria-label="Somar"onclick="pressButton('+')">
+                        <area shape="rect" coords="79%,89%,100%,100%" href="#" alt="=" role="button" aria-label="Resultado"onclick="pressButton('=')">
+                    </map>
+                </div>
+            </div>
+            
+            <!-- Área de jogo (opções de resposta) -->
+            <div class="game-options" id="game-options" style="display: none;">
+                <h2>Escolha a resposta correta:</h2>
+                <div class="options-container">
+                    <button class="option-btn" id="option1" onclick="checkAnswer(0)">Opção 1</button>
+                    <button class="option-btn" id="option2" onclick="checkAnswer(1)">Opção 2</button>
+                    <button class="option-btn" id="option3" onclick="checkAnswer(2)">Opção 3</button>
+                    <button class="option-btn" id="option4" onclick="checkAnswer(3)">Opção 4</button>
+                </div>
+            </div>
+            
+            <!-- Área de mensagens e pontuação -->
+            <div class="game-info">
+                <div class="message-area" id="message-area"></div>
+                <div class="score-area">
+                    <p>Pontuação: <span id="score">0</span>/10</p>
+                    <p>Tentativas restantes: <span id="attempts">3</span></p>
+                </div>
+            </div>
+            
+            <!-- Botão de iniciar -->
+            <div class="controls">
+                <button id="start-btn" class="start-btn">Iniciar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script-updated.js"></script>
+    <script src="integration-test.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/12.1.0/math.min.js"></script>
+</body>
+</html>
