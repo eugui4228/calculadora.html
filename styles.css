@@ -1,4 +1,4 @@
-/* Estilos para o Jogo de Calculadora Interativa */
+
 
 * {
     margin: 0;
@@ -34,7 +34,7 @@ h1 {
     gap: 20px;
 }
 
-/* Estilos da calculadora */
+
 .calculator-container {
     position: relative;
     margin-bottom: 20px;
@@ -68,7 +68,7 @@ h1 {
     height: auto;
 }
 
-/* Estilos das opções de resposta */
+
 .game-options {
     width: 100%;
     max-width: 600px;
@@ -107,7 +107,7 @@ h1 {
     background-color: #45a049;
 }
 
-/* Área de mensagens e pontuação */
+
 .game-info {
     width: 100%;
     max-width: 600px;
@@ -140,7 +140,7 @@ h1 {
     color: #333;
 }
 
-/* Botão de iniciar */
+
 .controls {
     margin-top: 20px;
     text-align: center;
@@ -161,7 +161,7 @@ h1 {
     background-color: #0b7dda;
 }
 
-/* Estilos para mensagens de sucesso/erro */
+
 .success-message {
     color: #2e7d32;
     background-color: #e8f5e9;
@@ -174,7 +174,6 @@ h1 {
     border: 1px solid #ffcdd2;
 }
 
-/* Responsividade */
 @media (max-width: 768px) {
     .options-container {
         grid-template-columns: 1fr;
