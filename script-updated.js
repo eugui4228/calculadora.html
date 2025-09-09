@@ -1,9 +1,7 @@
-// JavaScript corrigido para a Calculadora Interativa
 
-// Variáveis globais
 let displayValue = '0';
 let currentExpression = '';
-let lastInputType = 'none'; // Para rastrear o tipo do último input (número, operador, etc.)
+let lastInputType = 'none'; 
 let gameActive = false;
 let correctAnswer = 0;
 let options = [];
@@ -11,7 +9,7 @@ let currentScore = 0;
 let attemptsLeft = 3;
 let correctAnswerIndex = 0;
 let maxScore = 10;
-let waitingForOperand = false; // Flag para indicar se estamos esperando um operando após um operador
+let waitingForOperand = false; 
 
 // Elementos DOM
 const display = document.getElementById('display');
@@ -27,12 +25,12 @@ const optionButtons = [
     document.getElementById('option4')
 ];
 
-// Inicialização
+
 document.addEventListener('DOMContentLoaded', function() {
-    // Configurar o botão de iniciar
+
     startButton.addEventListener('click', startGame);
     
-    // Inicializar o display
+
     updateDisplay();
 });
 
@@ -58,7 +56,7 @@ function startGame() {
     showMessage('Clique nos botões da calculadora para começar!', 'normal');
 }
 
-// Função corrigida para processar os botões pressionados
+
 function pressButton(value) {
     if (!gameActive) return;
     
@@ -251,33 +249,29 @@ function pressButton(value) {
             break;
     }
 }
-
-// Função para atualizar o display
 function updateDisplay() {
     display.textContent = displayValue;
 }
 
-// Função para calcular o resultado e mostrar opções
+
 function calculateAndShowOptions() {
     try {
-        // Substituir 'x' por '*' para avaliação
+      
         let expressionToEvaluate = currentExpression.replace(/x/g, '*');
         
-        // Calcular o resultado correto
+    
         correctAnswer = eval(expressionToEvaluate);
-        
-        // Arredondar para 2 casas decimais se for um número decimal
+
         if (correctAnswer % 1 !== 0) {
             correctAnswer = parseFloat(correctAnswer.toFixed(2));
         }
         
-        // Gerar opções de resposta
+
         generateOptions(correctAnswer);
         
-        // Mostrar as opções
+
         displayOptions();
-        
-        // Atualizar o display para mostrar a expressão completa
+     
         displayValue = currentExpression;
         updateDisplay();
         
@@ -287,24 +281,24 @@ function calculateAndShowOptions() {
     }
 }
 
-// Função para gerar opções de resposta
+
 function generateOptions(correctAnswer) {
     options = [];
     
-    // Adicionar a resposta correta
+
     options.push(correctAnswer);
     
     // Gerar 3 respostas incorretas
     for (let i = 0; i < 3; i++) {
         let incorrectAnswer;
         do {
-            // Gerar uma resposta incorreta baseada na correta
+           
             const variation = Math.random() > 0.5 ? 1 : -1;
             const factor = Math.random() * 0.5 + 0.1; // Entre 10% e 60% de variação
             
             incorrectAnswer = correctAnswer + (correctAnswer * factor * variation);
             
-            // Arredondar para 2 casas decimais se for um número decimal
+           
             if (incorrectAnswer % 1 !== 0) {
                 incorrectAnswer = parseFloat(incorrectAnswer.toFixed(2));
             } else {
@@ -316,14 +310,14 @@ function generateOptions(correctAnswer) {
         options.push(incorrectAnswer);
     }
     
-    // Embaralhar as opções
+   
     shuffleArray(options);
     
-    // Guardar o índice da resposta correta
+    
     correctAnswerIndex = options.indexOf(correctAnswer);
 }
 
-// Função para embaralhar um array
+
 function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -331,21 +325,21 @@ function shuffleArray(array) {
     }
 }
 
-// Função para mostrar as opções
+
 function displayOptions() {
-    // Atualizar o texto dos botões de opção
+   
     for (let i = 0; i < 4; i++) {
         optionButtons[i].textContent = options[i];
     }
     
-    // Mostrar a área de opções
+  
     gameOptions.style.display = 'block';
     
-    // Mostrar mensagem para o usuário
+
     showMessage('Escolha a resposta correta!', 'normal');
 }
 
-// Função para verificar a resposta escolhida
+
 function checkAnswer(optionIndex) {
     if (!gameActive) return;
     
@@ -363,14 +357,13 @@ function checkAnswer(optionIndex) {
             updateScore();
         }
         
-        // Verificar se atingiu a pontuação máxima
         if (currentScore >= maxScore) {
             gameActive = false;
             showMessage('Parabéns! Você atingiu a pontuação máxima de ' + maxScore + ' pontos!', 'success');
             return;
         }
         
-        // Resetar tentativas para o próximo cálculo
+  
         attemptsLeft = 3;
         updateAttempts();
         
@@ -412,10 +405,10 @@ function checkAnswer(optionIndex) {
 function showMessage(message, type) {
     messageArea.textContent = message;
     
-    // Remover classes anteriores
+
     messageArea.classList.remove('success-message', 'error-message');
     
-    // Adicionar classe baseada no tipo
+
     if (type === 'success') {
         messageArea.classList.add('success-message');
     } else if (type === 'error') {
