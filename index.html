@@ -11,15 +11,15 @@
         <h1>Jogo de Calculadora Interativa</h1>
         
         <div class="game-area">
-            <!-- Área da calculadora -->
+
             <div class="calculator-container">
                 <div class="calculator-display" id="display">0</div>
                 <div class="calculator-image-container">
                     <img src="calc.png" alt="Calculadora" usemap="#calculator-map" class="calculator-image">
                     
-                    <!-- Mapeamento das áreas clicáveis da calculadora -->
+         
                     <map name="calculator-map">
-                        <!-- Botões de controle -->
+                  
                         <area shape="rect" coords="4%,19%,25%,31%" href="#" alt="OFF" role="button" aria-label="Desligar Calculadora" onclick="pressButton('off')">
                         <area shape="rect" coords="29%,19%,50%,31%" href="#" alt="ON" role="button" aria-label="Ligar Calculadora" onclick="pressButton('on')">
                         <area shape="rect" coords="54%,19%,75%,31%" href="#" alt="C" role="button" aria-label="Apagar Números" onclick="pressButton('c')">
@@ -51,7 +51,7 @@
                 </div>
             </div>
             
-            <!-- Área de jogo (opções de resposta) -->
+  
             <div class="game-options" id="game-options" style="display: none;">
                 <h2>Escolha a resposta correta:</h2>
                 <div class="options-container">
@@ -62,7 +62,7 @@
                 </div>
             </div>
             
-            <!-- Área de mensagens e pontuação -->
+       
             <div class="game-info">
                 <div class="message-area" id="message-area"></div>
                 <div class="score-area">
@@ -70,8 +70,7 @@
                     <p>Tentativas restantes: <span id="attempts">3</span></p>
                 </div>
             </div>
-            
-            <!-- Botão de iniciar -->
+         
             <div class="controls">
                 <button id="start-btn" class="start-btn">Iniciar</button>
             </div>
