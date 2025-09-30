@@ -11,7 +11,7 @@ let correctAnswerIndex = 0;
 let maxScore = 10;
 let waitingForOperand = false; 
 
-// Elementos DOM
+
 const display = document.getElementById('display');
 const gameOptions = document.getElementById('game-options');
 const messageArea = document.getElementById('message-area');
@@ -42,17 +42,17 @@ function startGame() {
     updateScore();
     updateAttempts();
     
-    // Limpar o display e a expressão
+    
     displayValue = '0';
     currentExpression = '';
     lastInputType = 'none';
     waitingForOperand = false;
     updateDisplay();
     
-    // Esconder as opções de resposta inicialmente
+    
     gameOptions.style.display = 'none';
     
-    // Mostrar mensagem para o usuário
+    
     showMessage('Clique nos botões da calculadora para começar!', 'normal');
 }
 
@@ -288,13 +288,13 @@ function generateOptions(correctAnswer) {
 
     options.push(correctAnswer);
     
-    // Gerar 3 respostas incorretas
+    
     for (let i = 0; i < 3; i++) {
         let incorrectAnswer;
         do {
            
             const variation = Math.random() > 0.5 ? 1 : -1;
-            const factor = Math.random() * 0.5 + 0.1; // Entre 10% e 60% de variação
+            const factor = Math.random() * 0.5 + 0.1; 
             
             incorrectAnswer = correctAnswer + (correctAnswer * factor * variation);
             
@@ -344,14 +344,14 @@ function checkAnswer(optionIndex) {
     if (!gameActive) return;
     
     if (optionIndex === correctAnswerIndex) {
-        // Resposta correta
+        
         if (attemptsLeft === 3) {
-            // Acertou de primeira
+            
             showMessage('Parabéns! Você acertou de primeira! Ganhou 1 ponto.', 'success');
             currentScore++;
             updateScore();
         } else {
-            // Acertou, mas não de primeira
+            
             showMessage('Correto! Ganhou 1 ponto.', 'success');
             currentScore++;
             updateScore();
@@ -367,10 +367,10 @@ function checkAnswer(optionIndex) {
         attemptsLeft = 3;
         updateAttempts();
         
-        // Esconder as opções
+        
         gameOptions.style.display = 'none';
         
-        // Limpar o display para o próximo cálculo
+        
         displayValue = '0';
         currentExpression = '';
         lastInputType = 'none';
@@ -378,7 +378,7 @@ function checkAnswer(optionIndex) {
         updateDisplay();
         
     } else {
-        // Resposta incorreta
+        
         attemptsLeft--;
         updateAttempts();
         
@@ -401,7 +401,7 @@ function checkAnswer(optionIndex) {
     }
 }
 
-// Função para mostrar mensagens
+
 function showMessage(message, type) {
     messageArea.textContent = message;
     
@@ -416,12 +416,12 @@ function showMessage(message, type) {
     }
 }
 
-// Função para atualizar a pontuação
+
 function updateScore() {
     scoreElement.textContent = currentScore;
 }
 
-// Função para atualizar as tentativas
+
 function updateAttempts() {
     attemptsElement.textContent = attemptsLeft;
 }
