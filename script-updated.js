@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
     updateDisplay();
 });
 
-// Função para iniciar o jogo
+
 function startGame() {
     gameActive = true;
     currentScore = 0;
